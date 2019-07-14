@@ -24,8 +24,6 @@ class Index extends Component {
     if (!isEmpty(this.props.searchString)) {
       params.search = this.props.searchString.value
     }
-    console.log('===>>>', page)
-    console.log('===>>>', params)
     this.props.setSelectedPage(page)
     this.props.getCharacterList(params)
   }
