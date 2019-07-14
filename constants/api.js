@@ -1,0 +1,5 @@
+export const API_URL = 'https://swapi.co/api/'
+export const CHARACTER = 'people/'
+export const FILMS = 'films/'
+export const PAGES = '?page='
+export const SEARCH = '?search='
