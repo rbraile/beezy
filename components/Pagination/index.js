@@ -17,12 +17,7 @@ function createItem(page, handlerOnclick, selectedPage, key, simbol) {
 }
 
 function navigator(item, onclick, selectedPage, simbol) {
-  let last = item.length
-  if (item.indexOf('&') !== -1) {
-    last = item.indexOf('&')
-  }
-
-  const pageNum = item.substring(item.indexOf('=') + 1, last)
+  const pageNum = item.split('page=')[1]
 
   return createItem(
     pageNum,

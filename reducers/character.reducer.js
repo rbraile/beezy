@@ -1,54 +1,62 @@
 import {
-  REQUEST_CHARACTER_LIST,
-  SUCCESS_CHARACTER_LIST,
-  ERROR_CHARACTER_LIST,
+  REQUEST_CHARACTER_DETAIL,
+  SUCCESS_CHARACTER_DETAIL,
+  ERROR_CHARACTER_DETAIL,
+  // REQUEST_CHARACTER_HOME,
+  // SUCCESS_CHARACTER_HOME,
+  // ERROR_CHARACTER_HOME,
 } from '../constants/ActionTypes'
 
-import reject from 'lodash/reject'
-
-function removeDeliveryFromState(state) {
-  return filter(state, ['id', action.payload.id])
-}
-
 const initialState = {
-  results: [],
+  detail: {},
+  home: {},
   loading: true,
   error: '',
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case REQUEST_CHARACTER_LIST:
+    case REQUEST_CHARACTER_DETAIL:
       return {
         ...state,
         loading: true,
         error: '',
       }
 
-    case SUCCESS_CHARACTER_LIST:
+    case SUCCESS_CHARACTER_DETAIL:
       return {
         ...state,
+        detail: action.payload,
         loading: false,
         error: '',
-        ...action.payload,
       }
 
-    case ERROR_CHARACTER_LIST:
+    case ERROR_CHARACTER_DETAIL:
       return {
         ...state,
         loading: false,
         error: action.payload,
       }
 
-    // case REMOVE_DELIVERY:
-    //   const list = reject(state, { id: action.payload })
-    //   return [...list]
-    // case EDIT_DELIVERY:
-    //   newState = removeDeliveryFromState(state)
-    //   return [...newState]
+    // case REQUEST_CHARACTER_HOME:
+    //   return {
+    //     ...state,
+    //     loading: true,
+    //   }
 
-    // case SAVE_DELIVERY:
-    //   return [...state, action.payload]
+    // case SUCCESS_CHARACTER_HOME:
+    //   return {
+    //     ...state,
+    //     home: action.payload,
+    //     loading: false,
+    //   }
+
+    // case ERROR_CHARACTER_HOME:
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //   }
+
     default:
       return state
   }

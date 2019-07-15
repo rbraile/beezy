@@ -1,18 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import {
-  HeaderContainer,
-  Logo
-} from './styled';
-
+import { HeaderContainer, Logo } from './styled'
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <h1>Delivery Online</h1>
-     {/* <Logo /> */}
+      <h1>Star Wars</h1>
+      {/* <Logo /> */}
     </HeaderContainer>
-  );
+  )
 }
 
-export default Header;
+export default Header
