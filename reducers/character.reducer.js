@@ -2,15 +2,17 @@ import {
   REQUEST_CHARACTER_DETAIL,
   SUCCESS_CHARACTER_DETAIL,
   ERROR_CHARACTER_DETAIL,
-  // REQUEST_CHARACTER_HOME,
-  // SUCCESS_CHARACTER_HOME,
-  // ERROR_CHARACTER_HOME,
+  SUCCESS_SPECIES,
 } from '../constants/ActionTypes'
 
 const initialState = {
   detail: {},
   home: {},
   loading: true,
+  species: {
+    loading: true,
+    list: [],
+  },
   error: '',
 }
 
@@ -38,11 +40,15 @@ const reducer = (state = initialState, action) => {
         error: action.payload,
       }
 
-    // case REQUEST_CHARACTER_HOME:
-    //   return {
-    //     ...state,
-    //     loading: true,
-    //   }
+    case SUCCESS_SPECIES:
+      console.log('actionnn', action)
+      return {
+        ...state,
+        species: {
+          loading: false,
+          list: action.payload,
+        },
+      }
 
     // case SUCCESS_CHARACTER_HOME:
     //   return {

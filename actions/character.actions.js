@@ -5,9 +5,14 @@ import {
   REQUEST_CHARACTER_DETAIL,
   SUCCESS_CHARACTER_DETAIL,
   ERROR_CHARACTER_DETAIL,
+  SUCCESS_SPECIES,
 } from '../constants/ActionTypes'
 
-import { getCharacterListService, getCharacterDetailService } from '../services'
+import {
+  getCharacterListService,
+  getCharacterDetailService,
+  getListOfSpicies,
+} from '../services'
 
 export const getCharacterList = params => async dispatch => {
   dispatch({ type: REQUEST_CHARACTER_LIST })
@@ -24,6 +29,9 @@ export const getCharacterDetail = characterId => async dispatch => {
   try {
     const res = await getCharacterDetailService(characterId)
     dispatch({ type: SUCCESS_CHARACTER_DETAIL, payload: res.data })
+
+    const response = await getListOfSpicies(res.data.species)
+    dispatch({ type: SUCCESS_SPECIES, payload: response })
   } catch (err) {
     dispatch({ type: ERROR_CHARACTER_DETAIL, payload: err })
   }
