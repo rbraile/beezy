@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST = CHARACTERLIST TEST = CHARACTERLIST =  1`] = `
+<styled__CharacterSection>
+  <styled__Aside>
+    <Filters />
+    <Order />
+  </styled__Aside>
+  <styled__CharacterListContainer />
+</styled__CharacterSection>
+`;

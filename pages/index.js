@@ -16,7 +16,8 @@ import Pagination from '../components/Pagination'
 
 class Index extends Component {
   async componentDidMount() {
-    await this.props.getCharacterList()
+    !this.props.characters.results.length &&
+      (await this.props.getCharacterList())
   }
 
   handlePaginate = page => {

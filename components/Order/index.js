@@ -16,12 +16,18 @@ const Order = ({ handlerSetOrder, order }) => {
   return (
     <>
       <h2>Order</h2>
-      <a onClick={() => handlerClick(handlerSetOrder, order, 'name')}>
-        By name
-      </a>
-      <a onClick={() => handlerClick(handlerSetOrder, order, 'gender')}>
-        By gender
-      </a>
+      <ul>
+        <li>
+          <a onClick={() => handlerClick(handlerSetOrder, order, 'name')}>
+            By name
+          </a>
+        </li>
+        <li>
+          <a onClick={() => handlerClick(handlerSetOrder, order, 'gender')}>
+            By gender
+          </a>
+        </li>
+      </ul>
     </>
   )
 }

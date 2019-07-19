@@ -1,12 +1,21 @@
 import React from 'react'
+import Link from 'next/link'
 
-import { HeaderContainer, Logo } from './styled'
+import { HeaderContainer, Menu } from './styled'
 
 const Header = () => {
   return (
     <HeaderContainer>
       <h1>Star Wars</h1>
-      {/* <Logo /> */}
+      <Menu>
+        <ul>
+          <li>
+            <Link href='/'>
+              <a>Home</a>
+            </Link>
+          </li>
+        </ul>
+      </Menu>
     </HeaderContainer>
   )
 }
