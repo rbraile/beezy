@@ -1,5 +1,7 @@
 import React from 'react'
 import Fields from '../Fields'
+import Spinner from '../Spinner'
+import { Container } from './styled'
 
 const DetailCharacter = ({ character }) => {
   const detailList = [
@@ -15,7 +17,10 @@ const DetailCharacter = ({ character }) => {
   return character.loading ? (
     <Spinner />
   ) : (
-    <Fields detailList={detailList} details={character.detail} />
+    <Container>
+      <h2>Datails:</h2>
+      <Fields detailList={detailList} details={character.detail} />
+    </Container>
   )
 }
 

@@ -27,7 +27,7 @@ const Filters = ({ handlerSearch }) => {
           onChange={handleInputChange}
         />
         <button type='submit' onClick={e => handlerClick(e, handlerSearch)}>
-          Buscar
+          Filter
         </button>
       </form>
     </div>

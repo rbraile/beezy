@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST = CARD TEST = CARD = SNAPSHOT 1`] = `
+<Card
+  birth_year="41.9BBY"
+  eye_color="blue"
+  gender="male"
+  hair_color="blond"
+  height="188"
+  mass="84"
+  name="Anakin Skywalker"
+  skin_color="fair"
+  url="https://swapi.co/api/people/1/"
+>
+  <styled__CardContainer
+    key="people-1"
+  >
+    <article
+      className="styled__CardContainer-sc-4po4d9-0 cPRHzo"
+    >
+      <Link
+        href="/detail?id=1"
+        prefetch={true}
+      >
+        <styled__DescriptionContainer
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          <a
+            className="styled__DescriptionContainer-sc-4po4d9-1 djNYan"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            <styled__Name>
+              <h2
+                className="styled__Name-sc-4po4d9-2 dsMHFm"
+              >
+                Anakin Skywalker
+              </h2>
+            </styled__Name>
+            <Fields
+              detailList={
+                Array [
+                  "gender",
+                  "height",
+                  "hair_color",
+                  "skin_color",
+                  "eye_color",
+                  "birth_year",
+                  "mass",
+                ]
+              }
+              details={
+                Object {
+                  "birth_year": "41.9BBY",
+                  "eye_color": "blue",
+                  "gender": "male",
+                  "hair_color": "blond",
+                  "height": "188",
+                  "mass": "84",
+                  "name": "Anakin Skywalker",
+                  "skin_color": "fair",
+                  "url": "https://swapi.co/api/people/1/",
+                }
+              }
+            >
+              <p
+                key="gendermale"
+              >
+                <span>
+                  gender
+                  : 
+                </span>
+                <strong>
+                  male
+                </strong>
+              </p>
+              <p
+                key="height188"
+              >
+                <span>
+                  height
+                  : 
+                </span>
+                <strong>
+                  188
+                </strong>
+              </p>
+              <p
+                key="hair_colorblond"
+              >
+                <span>
+                  hair_color
+                  : 
+                </span>
+                <strong>
+                  blond
+                </strong>
+              </p>
+              <p
+                key="skin_colorfair"
+              >
+                <span>
+                  skin_color
+                  : 
+                </span>
+                <strong>
+                  fair
+                </strong>
+              </p>
+              <p
+                key="eye_colorblue"
+              >
+                <span>
+                  eye_color
+                  : 
+                </span>
+                <strong>
+                  blue
+                </strong>
+              </p>
+              <p
+                key="birth_year41.9BBY"
+              >
+                <span>
+                  birth_year
+                  : 
+                </span>
+                <strong>
+                  41.9BBY
+                </strong>
+              </p>
+              <p
+                key="mass84"
+              >
+                <span>
+                  mass
+                  : 
+                </span>
+                <strong>
+                  84
+                </strong>
+              </p>
+            </Fields>
+          </a>
+        </styled__DescriptionContainer>
+      </Link>
+    </article>
+  </styled__CardContainer>
+</Card>
+`;

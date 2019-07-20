@@ -1,5 +1,5 @@
 import React from 'react'
-import Enzyme, { mount, shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 import DetailCharacter from '../index'
 
@@ -25,7 +25,13 @@ describe('TEST = CHARACTERLIST', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  test('TEST = CHARACTERLIST = MOUNT ', () => {
+  test('TEST = CHARACTERLIST = Check when the loading is in true show the Spinner', () => {
+    const character = { loading: true }
+    const wrapper = shallow(<DetailCharacter character={character} />)
+    expect(wrapper.find('Spinner')).toHaveLength(1)
+  })
+
+  test('TEST = CHARACTERLIST = Has the 8 paragraph one for each detail', () => {
     const wrapper = mount(<DetailCharacter {...props} />)
     expect(wrapper.find('p')).toHaveLength(8)
   })

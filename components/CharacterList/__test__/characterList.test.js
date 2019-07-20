@@ -1,5 +1,5 @@
 import React from 'react'
-import Enzyme, { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import CharacterList from '../index'
 

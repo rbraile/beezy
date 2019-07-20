@@ -15,6 +15,9 @@ import Spinner from '../components/Spinner'
 import Pagination from '../components/Pagination'
 
 class Index extends Component {
+  state = {
+    search: '',
+  }
   async componentDidMount() {
     !this.props.characters.results.length &&
       (await this.props.getCharacterList())
@@ -34,6 +37,7 @@ class Index extends Component {
   }
 
   handlerSearch = search => {
+    this.setState({ search })
     const params = { search }
     this.props.setSelectedPage(1)
     this.props.setSearch(search)
@@ -43,17 +47,20 @@ class Index extends Component {
   render() {
     return (
       <MainLayout>
-        <h1>List of Star Wars characters</h1>
         {this.props.characters.loading ? (
           <Spinner />
         ) : (
           <>
-            <CharacterList
-              handlerSetOrder={this.handlerSetOrder}
-              charactersList={this.props.characters.results}
-              order={this.props.order}
-              handlerSearch={this.handlerSearch}
-            />
+            {this.props.characters.results.length ? (
+              <CharacterList
+                handlerSetOrder={this.handlerSetOrder}
+                charactersList={this.props.characters.results}
+                order={this.props.order}
+                handlerSearch={this.handlerSearch}
+              />
+            ) : (
+              <p>No hay resultados: {this.state.search} </p>
+            )}
             <Pagination
               selectedPage={this.props.paginate.selectedPage}
               next={this.props.characters.next}

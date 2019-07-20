@@ -41,7 +41,6 @@ const reducer = (state = initialState, action) => {
       }
 
     case SUCCESS_SPECIES:
-      console.log('actionnn', action)
       return {
         ...state,
         species: {
@@ -49,19 +48,6 @@ const reducer = (state = initialState, action) => {
           list: action.payload,
         },
       }
-
-    // case SUCCESS_CHARACTER_HOME:
-    //   return {
-    //     ...state,
-    //     home: action.payload,
-    //     loading: false,
-    //   }
-
-    // case ERROR_CHARACTER_HOME:
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //   }
 
     default:
       return state

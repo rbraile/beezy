@@ -1,9 +1,17 @@
 import React from 'react'
+import orderBy from 'lodash/orderBy'
 import Card from '../../components/Card'
-import { CharacterListContainer, CharacterSection, Aside } from './styled'
 import Filters from '../../components/Filters'
 import Order from '../../components/Order'
-import orderBy from 'lodash/orderBy'
+
+import {
+  CharacterListContainer,
+  CharacterSection,
+  Aside,
+  TitlePage,
+  Container,
+} from './styled'
+import Breadcrumb from '../Breadcrumb'
 
 const orden = (charactersList, order) => {
   if (order !== {}) {
@@ -19,16 +27,20 @@ const CharacterList = ({
 }) => {
   return (
     <CharacterSection>
-      <Aside>
-        <Filters handlerSearch={handlerSearch} />
-        <Order handlerSetOrder={handlerSetOrder} order={order} />
-      </Aside>
-      <CharacterListContainer>
-        {charactersList &&
-          orden(charactersList, order).map(character => (
-            <Card key={character.name} {...character} />
-          ))}
-      </CharacterListContainer>
+      <Breadcrumb />
+      <h1>List of Star Wars characters</h1>
+      <Container>
+        <Aside>
+          <Filters handlerSearch={handlerSearch} />
+          <Order handlerSetOrder={handlerSetOrder} order={order} />
+        </Aside>
+        <CharacterListContainer>
+          {charactersList &&
+            orden(charactersList, order).map(character => (
+              <Card key={character.name} {...character} />
+            ))}
+        </CharacterListContainer>
+      </Container>
     </CharacterSection>
   )
 }

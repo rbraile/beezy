@@ -6,18 +6,18 @@ import {
 } from './styled'
 const amountPerPage = 10
 
-function createItem(page, handlerOnclick, selectedPage, key, simbol) {
-  return parseInt(selectedPage, 10) !== page ? (
-    <PaginationItem key={key} onClick={() => handlerOnclick(page)}>
-      {simbol ? simbol : page}
+function createItem(pageNumber, handlerOnclick, selectedPage, key, simbol) {
+  return parseInt(selectedPage, 10) !== pageNumber ? (
+    <PaginationItem key={key} onClick={() => handlerOnclick(`${pageNumber}`)}>
+      {simbol ? simbol : pageNumber}
     </PaginationItem>
   ) : (
-    <PaginationItemDisabled key={key}>{page}</PaginationItemDisabled>
+    <PaginationItemDisabled key={key}>{pageNumber}</PaginationItemDisabled>
   )
 }
 
 function navigator(item, onclick, selectedPage, simbol) {
-  const pageNum = item.split('page=')[1]
+  const pageNum = item.split('page=')[1].split('&')[0]
 
   return createItem(
     pageNum,
@@ -37,13 +37,8 @@ const Pagination = ({ selectedPage, next, prev, count, onclick }) => {
     pages.push(createItem(i, onclick, selectedPage, `pagination-${i}`))
   }
 
-  if (prev) {
-    pages.unshift(navigator(prev, onclick, selectedPage, '«'))
-  }
-
-  if (next) {
-    pages.push(navigator(next, onclick, selectedPage, '»'))
-  }
+  prev && pages.unshift(navigator(prev, onclick, selectedPage, '«'))
+  next && pages.push(navigator(next, onclick, selectedPage, '»'))
 
   return <PaginationContainer>{pages}</PaginationContainer>
 }

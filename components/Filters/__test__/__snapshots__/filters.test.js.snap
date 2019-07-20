@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST = CHARACTERLIST TEST = FILTERS = SNAPSHOT 1`] = `
+<Filters>
+  <div>
+    <h2>
+      Filters
+    </h2>
+    <form>
+      <input
+        name="search"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+        type="submit"
+      >
+        Filter
+      </button>
+    </form>
+  </div>
+</Filters>
+`;

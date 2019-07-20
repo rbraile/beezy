@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import withData from '../utils/withData'
 import { withRouter } from 'next/router'
-import isEmpty from 'lodash/isEmpty'
 
 import { getCharacterDetail, getCharacterPlanet } from '../actions'
 
 import MainLayout from '../components/MainLayout'
 import Spinner from '../components/Spinner'
-import DetailCharacterPage from '../components/DetailCharacterPage'
 import Species from '../components/Species'
 import Planet from '../components/Planet'
 import DetailCharacter from '../components/DetailCharacter'
+import Breadcrumb from '../components/Breadcrumb'
+import { Container, Annex } from '../static/styled'
 
 class Detail extends Component {
   async componentDidMount() {
@@ -26,14 +26,15 @@ class Detail extends Component {
           <Spinner />
         ) : (
           <>
-            <div>
-              <h1>Pagina de Detalle</h1>
-            </div>
-            <>
+            <Breadcrumb page={this.props.character.detail.name} />
+            <h1>Details Page</h1>
+            <Container>
               <DetailCharacter character={this.props.character} />
-              <Planet planet={this.props.planet} />
-              <Species species={this.props.character.species} />
-            </>
+              <Annex>
+                <Planet planet={this.props.planet} />
+                <Species species={this.props.character.species} />
+              </Annex>
+            </Container>
           </>
         )}
       </MainLayout>

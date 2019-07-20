@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 export const PaginationContainer = styled.div`
   margin: 10px 0;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `
 
 export const PaginationItemDisabled = styled.span`

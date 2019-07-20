@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import device from '../../utils/device'
 
 export const CardContainer = styled.article`
   background: #eee;
@@ -7,6 +8,14 @@ export const CardContainer = styled.article`
   width: 32%;
   margin-bottom: 15px;
   display: flex;
+
+  @media ${device.tablet} {
+    width: 46%;
+  }
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
 `
 
 export const DescriptionContainer = styled.a`

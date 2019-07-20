@@ -5,21 +5,22 @@ import Head from 'next/head'
 import initRedux from './initRedux'
 
 // Gets the display name of a JSX component for dev tools
-function getComponentDisplayName (Component) {
+function getComponentDisplayName(Component) {
   return Component.displayName || Component.name || 'Unknown'
 }
 
 export default ComposedComponent => {
   return class WithData extends React.Component {
-    static displayName = `WithData(${getComponentDisplayName(ComposedComponent)})`
+    static displayName = `WithData(${getComponentDisplayName(
+      ComposedComponent
+    )})`
     // static propTypes = {
     //   serverState: PropTypes.object.isRequired
     // }
 
-    static async getInitialProps (ctx) {
+    static async getInitialProps(ctx) {
       // Initial serverState with apollo (empty)
-      let serverState = {
-      }
+      let serverState = {}
 
       // Evaluate the composed component's getInitialProps()
       let composedInitialProps = {}
@@ -32,48 +33,40 @@ export default ComposedComponent => {
       if (!process.browser) {
         const redux = initRedux()
         // Provide the `url` prop data in case a GraphQL query uses it
-        const url = {query: ctx.query, pathname: ctx.pathname}
+        const url = { query: ctx.query, pathname: ctx.pathname }
 
         try {
           // Run all GraphQL queries
-            <ReduxProvider store={redux}>
-                <ComposedComponent url={url} {...composedInitialProps} />
-            </ReduxProvider>
-        } catch (error) {
-        }
+          ;<ReduxProvider store={redux}>
+            <ComposedComponent url={url} {...composedInitialProps} />
+          </ReduxProvider>
+        } catch (error) {}
         // getDataFromTree does not call componentWillUnmount
         // head side effect therefore need to be cleared manually
-        Head.rewind();
+        Head.rewind()
 
         // Extract query data from the Apollo store
-        serverState = {
-        }
+        serverState = {}
       }
 
       return {
         serverState,
-        ...composedInitialProps
+        ...composedInitialProps,
       }
     }
 
-    constructor (props) {
+    constructor(props) {
       super(props)
-      this.redux = initRedux();
+      this.redux = initRedux()
     }
-    componentWillMount(){
-    }
-    componentDidMount(){
-      this.redux.dispatch({ type: 'UPDATE_SCREEN_SIZE' });
-      window.addEventListener('resize', () =>
-        this.redux.dispatch({ type: 'UPDATE_SCREEN_SIZE' }));
-     
-    }
-    render () {
+    componentWillMount() {}
+    componentDidMount() {}
+    render() {
       return (
         // No need to use the Redux Provider
         // because Apollo sets up the store for us
         <ReduxProvider store={this.redux}>
-            <ComposedComponent {...this.props} />
+          <ComposedComponent {...this.props} />
         </ReduxProvider>
       )
     }
