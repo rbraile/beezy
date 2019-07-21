@@ -42,6 +42,7 @@ class Index extends Component {
     const params = { search }
     this.props.setSelectedPage(1)
     this.props.setSearch(search)
+    this.props.clearOrder()
     this.props.getCharacterList(params)
   }
 
