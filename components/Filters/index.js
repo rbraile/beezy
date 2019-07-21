@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Filters = ({ handlerSearch }) => {
+const Filters = ({ handlerSearch, clearList }) => {
   const [search, setSearch] = useState('')
 
   const handleInputChange = e => {
@@ -30,6 +30,7 @@ const Filters = ({ handlerSearch }) => {
           Filter
         </button>
       </form>
+      <button onClick={clearList}>Clear all</button>
     </div>
   )
 }

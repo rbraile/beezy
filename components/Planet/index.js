@@ -1,6 +1,7 @@
 import React from 'react'
 import Spinner from '../Spinner'
 import Fields from '../Fields'
+import Error from '../Error'
 import { Container } from './styled'
 
 const Planet = ({ planet }) => {
@@ -10,7 +11,11 @@ const Planet = ({ planet }) => {
   ) : (
     <Container>
       <h2>Home world</h2>
-      <Fields detailList={detailList} details={planet.detail} />
+      {planet.error.length ? (
+        <Error message={planet.error} />
+      ) : (
+        <Fields detailList={detailList} details={planet.detail} />
+      )}
     </Container>
   )
 }

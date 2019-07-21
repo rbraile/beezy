@@ -1,6 +1,7 @@
 import React from 'react'
 import Spinner from '../Spinner'
 import Fields from '../Fields'
+import Error from '../Error'
 import { Container } from './styled'
 
 const Species = ({ species }) => {
@@ -10,13 +11,19 @@ const Species = ({ species }) => {
   ) : (
     <Container>
       <h2>Specie</h2>
-      {species.list.map(specie => {
-        return (
-          <div key={specie.url}>
-            <Fields detailList={detailList} details={specie} />
-          </div>
-        )
-      })}
+      {species.error ? (
+        <Error message={species.error} />
+      ) : species.list.length ? (
+        species.list.map(specie => {
+          return (
+            <div key={specie.url}>
+              <Fields detailList={detailList} details={specie} />
+            </div>
+          )
+        })
+      ) : (
+        <p>Species there is no</p>
+      )}
     </Container>
   )
 }

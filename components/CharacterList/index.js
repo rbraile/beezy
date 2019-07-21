@@ -24,21 +24,34 @@ const CharacterList = ({
   handlerSetOrder,
   order,
   handlerSearch,
+  search,
+  clearList,
 }) => {
   return (
     <CharacterSection>
       <Breadcrumb />
       <h1>List of Star Wars characters</h1>
+
       <Container>
         <Aside>
-          <Filters handlerSearch={handlerSearch} />
+          {search !== '' && (
+            <p>
+              Search: <strong>{search}</strong>
+            </p>
+          )}
+          <Filters clearList={clearList} handlerSearch={handlerSearch} />
           <Order handlerSetOrder={handlerSetOrder} order={order} />
         </Aside>
         <CharacterListContainer>
-          {charactersList &&
+          {!charactersList.length ? (
+            <p>
+              There is no results: <strong>{search}</strong>
+            </p>
+          ) : (
             orden(charactersList, order).map(character => (
               <Card key={character.name} {...character} />
-            ))}
+            ))
+          )}
         </CharacterListContainer>
       </Container>
     </CharacterSection>

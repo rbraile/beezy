@@ -12,6 +12,6 @@ export const getCharacterPlanet = homeworld => async dispatch => {
     const res = await getCharacterPlanetService(homeworld)
     dispatch({ type: SUCCESS_CHARACTER_HOME, payload: res.data })
   } catch (err) {
-    dispatch({ type: ERROR_CHARACTER_HOME, payload: err })
+    dispatch({ type: ERROR_CHARACTER_HOME, payload: err.message })
   }
 }

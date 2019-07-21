@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import withData from '../utils/withData'
-import isEmpty from 'lodash/isEmpty'
 
 import {
   getCharacterList,
   setSelectedPage,
   setOrder,
   setSearch,
+  clearOrder,
 } from '../actions'
 import MainLayout from '../components/MainLayout'
 import CharacterList from '../components/CharacterList'
 import Spinner from '../components/Spinner'
+import Error from '../components/Error'
 import Pagination from '../components/Pagination'
 
 class Index extends Component {
@@ -25,7 +26,7 @@ class Index extends Component {
 
   handlePaginate = page => {
     const params = { page }
-    if (!isEmpty(this.props.searchString)) {
+    if (!this.props.searchString.length) {
       params.search = this.props.searchString.value
     }
     this.props.setSelectedPage(page)
@@ -44,6 +45,11 @@ class Index extends Component {
     this.props.getCharacterList(params)
   }
 
+  clearList = () => {
+    this.props.clearOrder()
+    this.props.getCharacterList()
+  }
+
   render() {
     return (
       <MainLayout>
@@ -51,15 +57,17 @@ class Index extends Component {
           <Spinner />
         ) : (
           <>
-            {this.props.characters.results.length ? (
+            {this.props.characters.error ? (
+              <Error message={this.props.characters.error} />
+            ) : (
               <CharacterList
                 handlerSetOrder={this.handlerSetOrder}
                 charactersList={this.props.characters.results}
                 order={this.props.order}
                 handlerSearch={this.handlerSearch}
+                search={this.state.search}
+                clearList={this.clearList}
               />
-            ) : (
-              <p>No hay resultados: {this.state.search} </p>
             )}
             <Pagination
               selectedPage={this.props.paginate.selectedPage}
@@ -89,6 +97,7 @@ const mapDispatchToProps = {
   setSelectedPage,
   setOrder,
   setSearch,
+  clearOrder,
 }
 
 const IndexPageWithRedux = connect(

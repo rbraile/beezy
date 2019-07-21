@@ -10,31 +10,9 @@ export default class MainLayout extends Component {
     show: false,
   }
 
-  handleScroll = () => {
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      this.setState({ show: true })
-    } else {
-      this.setState({ show: false })
-    }
-  }
+  componentDidMount() {}
 
-  handleToTop = () => {
-    global.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
-
-  componentDidMount() {
-    global.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    global.removeEventListener('scroll', this.handleScroll)
-  }
+  componentWillUnmount() {}
 
   render() {
     return (

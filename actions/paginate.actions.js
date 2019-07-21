@@ -1,9 +1,4 @@
-import { SET_SELECTED_PAGE, SET_PAGES_COUNT } from '../constants/ActionTypes'
-
-export const setPagesCount = pagesCount => ({
-  type: SET_PAGES_COUNT,
-  pagesCount,
-})
+import { SET_SELECTED_PAGE } from '../constants/ActionTypes'
 
 export const setSelectedPage = selectedPage => (dispatch, getState) => {
   const { paginate } = getState()

@@ -6,6 +6,7 @@ import {
   SUCCESS_CHARACTER_DETAIL,
   ERROR_CHARACTER_DETAIL,
   SUCCESS_SPECIES,
+  ERROR_SPECIES,
 } from '../constants/ActionTypes'
 
 import {
@@ -20,7 +21,7 @@ export const getCharacterList = params => async dispatch => {
     const res = await getCharacterListService(params)
     dispatch({ type: SUCCESS_CHARACTER_LIST, payload: res.data })
   } catch (err) {
-    dispatch({ type: ERROR_CHARACTER_LIST, payload: err })
+    dispatch({ type: ERROR_CHARACTER_LIST, payload: err.message })
   }
 }
 
@@ -30,9 +31,15 @@ export const getCharacterDetail = characterId => async dispatch => {
     const res = await getCharacterDetailService(characterId)
     dispatch({ type: SUCCESS_CHARACTER_DETAIL, payload: res.data })
 
-    const response = await getListOfSpicies(res.data.species)
-    dispatch({ type: SUCCESS_SPECIES, payload: response })
+    getListOfSpicies(res.data.species)
+      .then(function(response) {
+        dispatch({ type: SUCCESS_SPECIES, payload: response })
+      })
+      .catch(function(error) {
+        dispatch({ type: ERROR_SPECIES, payload: error.message })
+      })
   } catch (err) {
-    dispatch({ type: ERROR_CHARACTER_DETAIL, payload: err })
+    dispatch({ type: ERROR_CHARACTER_DETAIL, payload: err.message })
+    dispatch({ type: ERROR_SPECIES, payload: err.message })
   }
 }

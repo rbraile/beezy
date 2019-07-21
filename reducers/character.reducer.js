@@ -3,6 +3,7 @@ import {
   SUCCESS_CHARACTER_DETAIL,
   ERROR_CHARACTER_DETAIL,
   SUCCESS_SPECIES,
+  ERROR_SPECIES,
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   species: {
     loading: true,
     list: [],
+    error: '',
   },
   error: '',
 }
@@ -46,6 +48,15 @@ const reducer = (state = initialState, action) => {
         species: {
           loading: false,
           list: action.payload,
+          error: '',
+        },
+      }
+    case ERROR_SPECIES:
+      return {
+        ...state,
+        species: {
+          loading: false,
+          error: action.payload,
         },
       }
 

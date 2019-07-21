@@ -16,10 +16,3 @@ export const getListOfSpicies = async species => {
     throw new Error(err)
   }
 }
-
-async function asyncForEach(species, callback) {
-  let speciesList = []
-  species.forEach(specie => {
-    speciesList.push(specie)
-  })
-}

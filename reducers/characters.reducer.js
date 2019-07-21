@@ -4,12 +4,6 @@ import {
   ERROR_CHARACTER_LIST,
 } from '../constants/ActionTypes'
 
-import reject from 'lodash/reject'
-
-function removeDeliveryFromState(state) {
-  return filter(state, ['id', action.payload.id])
-}
-
 const initialState = {
   results: [],
   loading: true,
