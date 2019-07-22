@@ -1,11 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TEST = CHARACTERLIST TEST = CHARACTERLIST =  1`] = `
+exports[`TEST = CHARACTERLIST TEST = CHARACTERLIST = SNAPSHOT 1`] = `
 <styled__CharacterSection>
-  <styled__Aside>
-    <Filters />
-    <Order />
-  </styled__Aside>
-  <styled__CharacterListContainer />
+  <Breadcrumb />
+  <h1>
+    List of Star Wars characters
+  </h1>
+  <styled__Container>
+    <styled__Aside>
+      <Filters
+        clearList={[MockFunction]}
+        handlerSearch={[MockFunction]}
+      />
+      <Order
+        handlerSetOrder={[MockFunction]}
+        order={
+          Object {
+            "column": "name",
+            "type": "asc",
+          }
+        }
+      />
+    </styled__Aside>
+    <styled__CharacterListContainer>
+      <p>
+        There is no results: 
+        <strong />
+      </p>
+    </styled__CharacterListContainer>
+  </styled__Container>
 </styled__CharacterSection>
 `;

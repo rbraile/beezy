@@ -8,7 +8,6 @@ import {
   CharacterListContainer,
   CharacterSection,
   Aside,
-  TitlePage,
   Container,
 } from './styled'
 import Breadcrumb from '../Breadcrumb'

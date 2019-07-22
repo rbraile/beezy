@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST = Error TEST = Error = SNAPSHOT 1`] = `
+<Error>
+  <div>
+    <styled__Message>
+      <p
+        className="styled__Message-sc-16tbsrm-0 laOTbw"
+      />
+    </styled__Message>
+  </div>
+</Error>
+`;

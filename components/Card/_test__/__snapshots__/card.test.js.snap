@@ -16,7 +16,7 @@ exports[`TEST = CARD TEST = CARD = SNAPSHOT 1`] = `
     key="people-1"
   >
     <article
-      className="styled__CardContainer-sc-4po4d9-0 cPRHzo"
+      className="styled__CardContainer-sc-4po4d9-0 lirgWG"
     >
       <Link
         href="/detail?id=1"

@@ -20,6 +20,9 @@ exports[`TEST = CHARACTERLIST TEST = FILTERS = SNAPSHOT 1`] = `
         Filter
       </button>
     </form>
+    <button>
+      Clear all
+    </button>
   </div>
 </Filters>
 `;

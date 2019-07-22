@@ -4,7 +4,7 @@
 
 ### `requerimientos necesarios`
 
-version de node 8 o superior:
+version de node 10.15.3 o superior:
 
 Install it and run
 ```bash
@@ -34,7 +34,8 @@ la url donde esta hosteada la aplicacion es
 
 https://react-rb.herokuapp.com/
 
-- La aplicación no posee diseño
+- La aplicación no posee diseño, porque no soy bueno en eso lo que implicaria 
+que perdiera tiempo en hacer un diseño feo
 - Posee algunos test que se pueden probar corrinendo npm run test
 
 ```

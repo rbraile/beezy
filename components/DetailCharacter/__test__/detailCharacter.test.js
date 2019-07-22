@@ -7,6 +7,7 @@ describe('TEST = CHARACTERLIST', () => {
   const props = {
     character: {
       loading: false,
+      error: '',
       detail: {
         name: 'Anakin Skywalker',
         height: '188',

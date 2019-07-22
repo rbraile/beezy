@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST = Breadcrumb TEST = Breadcrumb = SNAPSHOT 1`] = `
+<Breadcrumb>
+  <styled__Menu>
+    <nav
+      className="styled__Menu-sc-18gbgtu-0 cxkmwx"
+    >
+      <ul>
+        <li>
+          <Link
+            href="/"
+            prefetch={true}
+          >
+            <a
+              href="/"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              Home
+            </a>
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  </styled__Menu>
+</Breadcrumb>
+`;
