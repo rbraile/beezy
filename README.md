@@ -37,6 +37,7 @@ https://react-rb.herokuapp.com/
 - La aplicación no posee diseño, porque no soy bueno en eso lo que implicaria 
 que perdiera tiempo en hacer un diseño feo
 - Posee algunos test que se pueden probar corrinendo npm run test
+- Esta probado en la ultima version de chrome y firefox para macOs Mojave
 
 ```
 
