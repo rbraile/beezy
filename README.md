@@ -30,30 +30,12 @@ y el servidor le levanta en http://0.0.0.0:13000
 ```js
 Es una aplicacion echa con NextJs react y redux,
 
-para cambiar la fuente de datos del grid se debe cambiar la variable 
-PATHTOAPI que esta en pages/index.js
+la url donde esta hosteada la aplicacion es
 
-para agregar o sacar columnas se debe cambiar la variable grid que tiene el siguiente formato
-en el archibo pages/index.js por ejemplo
-const grid = { 
-      columns:[
-        {
-          title: "Nombre",
-          content: "name",
-          orderlyFunction: this.props.setOrder, 
-          => si se envia orderlyFunction con una funcion esta designara a la columna como 
-          ordenable
-        },
-      ],
-      mobileColumns: [
-        "name",
-        "address",
-        "phone"
-      ]
-      => este array se utiliza para setear la visibilidad de las columnas en formato mobile
-    }
+https://react-rb.herokuapp.com/
 
-posee algunos test que se pueden probar corrinendo npm run test
+- La aplicación no posee diseño
+- Posee algunos test que se pueden probar corrinendo npm run test
 
 ```
 
