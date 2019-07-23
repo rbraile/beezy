@@ -28,11 +28,12 @@ y el servidor le levanta en http://0.0.0.0:13000
 ## Aclaraciones
 
 ```js
-Es una aplicacion echa con NextJs react y redux,
+Es una aplicacion hecha con NextJs react y redux,
 
 la url donde esta hosteada la aplicacion es
 
 https://react-rb.herokuapp.com/
+
 
 - La aplicación no posee diseño, porque no soy bueno en eso lo que implicaria 
 que perdiera tiempo en hacer un diseño feo
