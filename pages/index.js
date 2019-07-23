@@ -47,6 +47,7 @@ class Index extends Component {
   }
 
   clearList = () => {
+    this.props.setSelectedPage(1)
     this.props.clearOrder()
     this.props.getCharacterList()
   }
